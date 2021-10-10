@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+    <! Back Button --------------------------------------- >
+    <button type="button"class="round-button"><a style="text-decoration:none"; href="/" ><</a></a></button>
+    <script> function goBack() { window.history.back();} </script>
+
+    <! Title Name  --------------------------------------- >
+    <div class="container"> <center> <h1> Submit single file </h1> </center></div>
+    <br><br>
+
+    <! Asking user to upload a File --------------------------------------- >
+    <div>
+        <form action="{{url_for('predict_single_file')}}" method="POST" enctype="multipart/form-data">
+            <center>
+                <div class="btn-2">
+                    <! Table Starts ----------------- >
+                    <table>
+                        <! 1st row ------------------ >
+                        <tr>
+                            <th align="left"> Upload File </th>
+                            <th align="center"> : </th>
+                            <td colspan="2"> <input type="file" name="in_file" id="in_file" required="required" class="btn-2"></td>
+                        </tr>
+                        <! 2nd row ------------------ >
+                        <tr>
+                            <th align="left"> Store File In </th>
+                            <th align="center"> : </th>
+                            <td align="center"> <input type="checkbox" name="DB_Update" value="yes" id="DB_Update"/>
+                                <label for="DB_Update"> MongoDB (100 records) </label><br>
+                            </td>
+                            <td align="center"><input type="checkbox" name="Current_Dir_Update" value="yes" id="Current_Dir_Update"/>
+                                <label for="Current_Dir_Update"> Current Directory </label><br>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </center>
+        </form>
+    </div>
+   <br><br>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+<div class="container"><center><h1>Select the type of input data</h1><br></center></div>
+<br><br><br>
+ <div class="container">
+     <center>
+        <div class="box">
+            <form action="{{url_for('home_type')}}" method="POST">
+               <select name="input_type" id="input_type" required="required" >
+                   <option hidden="hidden" > Choose Input Type </option>
+                   <option value="Single_Record"> Single Record </option>
+                   <option value="Single_File"> Single File </option>
+                   <option value="Batch_Files"> Batch Files </option>
+               </select>
+               <button type="submit" class="btn"> Go > </button>
+            </form>
+        </div>
+     </center>
+ </div>
+
+</body>
+<br>
+</html>

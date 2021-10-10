@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >
+
+<body>
+    <! Back Button --------------------------------------- >
+    <button type="button" class="round-button"><a style="text-decoration:none"; href="/" ><</a></a></button>
+    <script> function goBack() { window.history.back();} </script>
+
+    <! Title Name  --------------------------------------- >
+    <div class="container"> <center> <h1> Enter Path of the Batch Files </h1> </center></div>
+    <br><br>
+
+    <! Asking user to upload a File --------------------------------------- >
+    <div>
+        <form action="{{url_for('predict_batch_files')}}" method="POST" enctype="multipart/form-data">
+            <center>
+                <div class="btn-2">
+                    <! Table Starts ----------------- >
+                    <table>
+                        <! 1st row ------------------ >
+                        <tr>
+                            <th align="left"> Enter Path of Batch Files</th>
+                            <th align="center"> : </th>
+                            <td align="left" colspan="2"><input type="text" required="required" name="path" id="path" placeholder="/Data/Batch_Files/Input_Files/" size="70"></td>
+                        </tr>
+                        <! 2nd row ------------------ >
+                        <tr>
+                            <th align="left" > Store File In </th>
+                            <th align="center" > : </th>
+                            <td align="center"> <input type="checkbox" name="DB_Update" value="yes" id="DB_Update" disabled/>
+                                <label for="DB_Update"> MongoDB (100 records) </label><br>
+                            </td>
+                            <td align="center"><input type="checkbox" name="Current_Dir_Update" value="yes" id="Current_Dir_Update"/>
+                                <label for="Current_Dir_Update"> Current Directory </label><br>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><br>
+                    <button type="submit" class="btn"> Submit </button>
+                </div>
+            </center>
+        </form>
+    </div>
+   <br><br>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <! Back Button --------------------------------------- >
+    <button type="button" class="round-button"><a style="text-decoration:none"; href="/" ><</a></a></button>
+    <script> function goBack() { window.history.back();} </script>
+
+    <! Title Name  --------------------------------------- >
+    <div class="container"><center><h1> Student Churn Analysis </h1></center></div>
+
+    <! Asking user to enter student details  --------------------------------------- >
+    <div class="container">
+        <form action="{{ url_for('predict_single_data')}}" method="POST">
+            <center>
+                <! Table_01 Starts  --------------------------------------- >
+                <table>
+                    <! 1nd row ----------- >
+                    <tr>
+                        <td align="center"> Start Date </td>
+                        <td align="center"> End Date</td>
+                    </tr>
+                    <! 2nd row ----------- >
+                    <tr>
+                        <td><input type="date" required="required" name="start_date"     id="start_date"></td>
+                        <td><input type="date" required="required" name="end_date"       id="end_date"  ></td>
+                    </tr>
+                </table>
+                <! Table_02 Starts  --------------------------------------- >
+                <table>
+                    <! 1st row ----------- >
+                    <tr>
+                        <td align="right">Access</td>
+                        <td><input type="number" required="required" name="access"         id="access"        placeholder="ex: 314, 185"></td>
+                    </tr>
+                    <! 2nd row ----------- >
+                    <tr>
+                        <td align="right">Discussion</td>
+                        <td><input type="number" required="required" name="discussion"     id="discussion"    placeholder="ex: 16, 70"></td>
+                    </tr>
+                    <! 3rd row ----------- >
+                    <tr>
+                        <td align="right">Navigate</td>
+                        <td><input type="number" required="required" name="navigate"       id="navigate"      placeholder="ex: 18, 36"></td>
+                    </tr>
+                    <! 4th row ----------- >
+                    <tr>
+                        <td align="right">Page Close</td>
+                        <td><input type="number" required="required" name="page_close"      id="page_close"      placeholder="ex: 79, 124"></td>
+                    </tr>
+                    <! 5th row ----------- >
+                    <tr>
+                        <td align="right">Problem</td>
+                        <td><input type="number" required="required" name="problem"        id="problem"       placeholder="ex: 309, 36"></td>
+                    </tr>
+                    <! 6th row ----------- >
+                    <tr>
+                        <td align="right">Video</td>
+                        <td><input type="number" required="required" name="video"        id="video"       placeholder="ex: 90, 50"></td>
+                    </tr>
+                    <! 7th row ----------- >
+                    <tr>
+                        <td align="right">Wiki</td>
+                        <td><input type="number" required="required" name="wiki"           id="wiki"          placeholder="ex: 1, 2"></td>
+                    </tr>
+                    <! 8th row ------------------ >
+                    <tr>
+                        <th align="right"> Store File MongoDB </th>
+                        <td align="center"> <input type="checkbox" name="DB_Update" value="yes" id="DB_Update"/>
+                    </tr>
+                </table>
+                <! Button  --------------------------------------- >
+                <button type="submit" class="btn">Predict</button>
+            </center>
+        </form>
+    </div>
+</body>
+</html>

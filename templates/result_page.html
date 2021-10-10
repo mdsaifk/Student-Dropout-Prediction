@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<! ######################################################################################### >
+
+<body>
+<! --------------------------------------- Main Title -------------------------------------- >
+<div class="container"><center><h1>MOOC Students Dropout Prediction</h1><br></center></div>
+
+<div class="container">
+    <center>
+    <form action="/">
+        {% if type == "single_record" %}
+        <! ===================================== Single Record ===================================== >
+        <! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >
+        <! Table Starts --------------------------------------- >
+        <table align="centre">
+            <! 1st row ----------- >
+            <tr>
+                <th align="left"> Student dropped? </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["Result"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 2nd row ----------- >
+            <tr>
+                <th align="left"> Storage Place </th>
+                <th align="center"> : </th>
+                <td align="left"> MongoDB </td>
+            </tr>
+            <! 3rd row ----------- >
+            <tr>
+                <th align="left"> Data Base Storage </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["DBMessage"]}} </td>
+            </tr>
+            <tr></tr>
+        </table>
+        <br>
+        {% endif %}
+
+        {% if type == "single_file" %}
+        <! ===================================== Single File ===================================== >
+        <! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >
+        <! Table Starts --------------------------------------- >
+        <table align="centre">
+            <! 1st row ----------- >
+            <tr>
+                <th align="right"> File Name </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["File_Name"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 2nd row ----------- >
+            <tr>
+                <th align="right"> Result </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["Result"]}} </td>
+            </tr>
+
+            <tr></tr>
+            <! 3rd row ----------- >
+            <tr>
+                <th align="right"> Data Base Storage </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["DBMessage"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 4th row ----------- >
+            <tr>
+                <th align="right"> Local Storage </th>
+                <th align="center"> : </th>
+                <td align="left"> {{resultStatus["Files_Stored_Path"]}} </td>
+            </tr>
+        </table>
+        <br><br><br>
+
+        <center>
+            <table>
+                <tr>
+                    <th> Enrollment ID </th>
+                    <th> Result </th>
+                </tr>
+                {% for i in range(5) %}
+                <tr>
+                    <td> {{resultStatus["sampleData"].loc[i,"enrollment_id"]}} </td>
+                    <td> {{resultStatus["sampleData"].loc[i,"result"]}} </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+        {% endif %}
+
+        {% if type == "batch_files" %}
+        <! ===================================== Batch Files ===================================== >
+        <! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% >
+        <! Table Starts --------------------------------------- >
+        <table align="centre">
+            <! 1st row ----------- >
+            <tr>
+                <th align="right"> Predicted Files : </th>
+                <td align="left"> {{resultStatus["Predicted_Files"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 2nd row ----------- >
+            <tr>
+                <th align="right"> Skipped Files : </th>
+                <td align="left"> {{resultStatus["Skipped_Files"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 3rd row ----------- >
+            <tr>
+                <th align="right"> DB Message : </th>
+                <td align="left"> {{resultStatus["DBMessage"]}} </td>
+            </tr>
+            <tr></tr>
+            <! 4th row ----------- >
+            <tr>
+                <th align="right"> Storage Path : </th>
+                <td align="left"> {{resultStatus["Files_Stored_Path"]}}</td>
+            </tr>
+        </table>
+        {% endif %}
+
+    <button type="button" class="hone"><a href="/"> 🏠 </a> </button>
+    </form>
+    </center>
+</div>
+</body>
+<br>
+</html>
