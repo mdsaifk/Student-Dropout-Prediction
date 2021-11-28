@@ -1,15 +1,18 @@
 # ------------------------------ Importing Required Libraries ------------------------------
+#from pymongo import MongoClient
+import ssl
+#client = pymongo.mongoclient("you url", ssl_cert_reqs=ssl.CERT_NONE)
 from pymongo import MongoClient
 
 class Database:
     def __init__(self):
         try:
-            # self.client = MongoClient('localhost', 27017)
-            # self.db = self.client['stdDropoutDB']
+            #self.client = MongoClient('localhost', 27017)
+            #self.db = self.client['essay_db']
             # self.collectionD = self.db['MOOC_Visual']
-            self.client = MongoClient("mongodb+srv://gowtham136:user136@cluster0.heyil.mongodb.net/<dbname>?retryWrites=true&w=majority")
-            self.db = self.client['stdDropoutDB']
-            # self.collectionT = self.db['MOOC_Visual']
+            self.client = MongoClient("mongodb+srv://saif_test1:Khanbhai12345@cluster1.yqruc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
+            self.db = self.client['myFirstDatabase']
+            self.collectionT = self.db['MOOC_Visual']
         except Exception as ex:
             print(ex)
 

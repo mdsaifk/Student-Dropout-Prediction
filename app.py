@@ -265,4 +265,4 @@ def predict_batch_files():
     return render_template("result_page.html", type="batch_files", resultStatus=resultStatus)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5101)
+    app.run(debug=True,host ='0.0.0.0', port=5102)
